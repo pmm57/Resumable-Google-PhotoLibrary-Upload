@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= include('AlbumSS'); ?>
+    <title>Resumable upload to Google Photo Album</title>
+  </head>
+  <body>
+    <header>
+      <h1>Resumable Upload Photos to Album</h1>
+      <p>V2020-12-06</p>
+    </header>
+    <section id="upLoadPhotos">
+      <form onsubmit="upLoadProcess()">
+        <input type="submit" id="aUpLoad" value="Up Load"/>
+      </form>
+      <br><output id="msgNbrUpLoadPhotos"></output>
+      <br><output id="msgUploadingPhoto"></output><br>
+      <div id="progress"></div>
+    </section>
+    <section id="formAlbumName" >
+      <form onsubmit="clickCheckCreate(this.submitted)">
+        <label for="aname">Album name:</label>
+        <input type="text" id="aname" name="lname">
+        <input onclick="this.form.submitted=this.value;" type="submit" value="Check" />
+        <input onclick="this.form.submitted=this.value;" type="submit" id="idCreate" value="Create" />
+        <br><output id="isNOTUpdateable"></output>
+      </form>
+    </section>
+    <section id="formPhotos" >
+      <div>
+        <input type="file" id="files" name="files[]" accept=".jpg, .jpeg" multiple/>
+        <br><output id="isUpdateable"></output>
+        <br><ul id="list"></ul>
+      </div>
+    </section>
+    <section id="upLoaded">
+      <p>Photos Up Loaded</p>
+      <ul id="upLoadedPhotoStatus"></ul>
+    </section>
+    <section id="addedToAlbum">
+      <p>Photos Added to Album</p>
+      <ul id="addedToAlbumStatus"></ul>
+    </section>
+    <section id="inAlbum">
+      <p>Photos in Album</p>
+      <ul id="inAlbumList"></ul>
+    </section>
+    <div id="spinner">
+      <figure>
+        <img src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif"/>   
+      </figure>
+    </div> 
+    <?!= include('AlbumJS'); ?>
+  </body>
+</html>
